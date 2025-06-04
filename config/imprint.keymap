@@ -25,6 +25,29 @@
                 , <&macro_tap &kp RET>
                 ;
         };
+
+        warp: warp {
+            compatible = "zmk,behavior-macro";
+            label = "WARP";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings =
+                  // Drückt Alt + D, um die Adressleiste zu fokussieren
+                  <&macro_press &kp LALT>
+                , <&macro_tap &kp D>
+                , <&macro_release &kp LALT>
+
+                  // Kurze Pause, damit der Fokus sicher wechselt
+                , <&macro_wait_time 50>
+
+                  // Tippt "warp"
+                , <&macro_tap &kp W &kp A &kp R &kp P>
+
+                  // Bestätigt mit Enter
+                , <&macro_tap &kp RET>
+                ;
+        };
     };
 
     keymap {
