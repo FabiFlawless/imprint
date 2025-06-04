@@ -12,9 +12,18 @@
     macros {
         cmd: cmd {
             compatible = "zmk,behavior-macro";
+            label = "CMD"; // Label ebenfalls angepasst
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT &kp F10 &kp T>;
-            label = "CMD";
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings =
+                  <&macro_press &kp LSHFT>
+                , <&macro_tap &kp F10>
+                , <&macro_release &kp LSHFT>
+                , <&macro_wait_time 60>
+                , <&macro_tap &kp T>
+                , <&macro_tap &kp RET>
+                ;
         };
     };
 
