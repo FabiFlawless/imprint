@@ -57,20 +57,17 @@
             wait-ms = <30>;
             tap-ms = <30>;
             bindings =
-                  // Drückt Alt + D für die Adressleiste
-                  <&macro_press &kp LALT>
-                , <&macro_tap &kp D>
-                , <&macro_release &kp LALT>
-
-                  // Kurze Pause
-                , <&macro_wait_time 50>
-
-                  // Tippt "devenv ." (Der Punkt ist wichtig!)
-                , <&macro_tap &kp D &kp E &kp V &kp E &kp N &kp V &kp SPACE &kp DOT>
-
-                  // Bestätigt mit Enter
-                , <&macro_tap &kp RET>
-                ;
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp D>,
+                <&macro_release>,
+                <&kp LALT>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp D &kp E &kp V &kp E &kp N &kp V &kp SPACE &kp DOT>,
+                <&macro_tap>,
+                <&kp RET>;
         };
 
         terminal: terminal {
@@ -80,20 +77,17 @@
             wait-ms = <30>;
             tap-ms = <30>;
             bindings =
-                  // Drückt Win + R, um den "Ausführen"-Dialog zu öffnen
-                  <&macro_press &kp LGUI> // LGUI ist die linke Windows-Taste
-                , <&macro_tap &kp R>
-                , <&macro_release &kp LGUI>
-
-                  // Warten, bis das Fenster erscheint
-                , <&macro_wait_time 100>
-
-                  // Tippt "wt" für die Windows Terminal App
-                , <&macro_tap &kp W &kp T>
-
-                  // Bestätigt mit Enter
-                , <&macro_tap &kp RET>
-                ;
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_wait_time 100>,
+                <&macro_tap>,
+                <&kp W &kp T>,
+                <&macro_tap>,
+                <&kp RET>;
         };
     };
 
@@ -119,7 +113,7 @@
 &kp F1  &kp F2  &kp F3      &kp F4  &kp F5  &kp F6            &kp F7  &kp F8      &kp F9    &kp F10    &kp F11  &kp F12
 &trans  &trans  &warp       &kp N8  &kp N9  &cmd              &trans  &kp HOME    &kp UP    &kp END    &trans   &trans
 &trans  &trans  &kp KP_NUM  &kp N5  &kp N6  &trans            &trans  &kp LEFT    &kp DOWN  &kp RIGHT  &trans   &trans
-&trans  &trans  &kp N1      &kp N2  &kp N3  &trans            &trans  &kp C_NEXT  &trans    &trans     &trans   &trans
+&trans  &trans  &terminal   &kp N2  &vs     &trans            &trans  &kp C_NEXT  &trans    &trans     &trans   &trans
 &trans  &trans  &trans      &kp N0  &trans                            &trans      &trans    &trans     &trans   &trans
                                     &trans  &trans  &trans    &trans  &kp DEL     &cmd
                                     &trans  &trans  &trans    &trans  &trans      &trans
@@ -171,10 +165,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,,,,,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,
         <&zip_xy_scaler 1 25>,
         <&zip_scroll_scaler 1 25>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>;
 };
