@@ -49,6 +49,29 @@
                 <&macro_tap>,
                 <&kp RET>;
         };
+
+        vs: vs {
+            compatible = "zmk,behavior-macro";
+            label = "VS";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings =
+                  // Drückt Alt + D für die Adressleiste
+                  <&macro_press &kp LALT>
+                , <&macro_tap &kp D>
+                , <&macro_release &kp LALT>
+
+                  // Kurze Pause
+                , <&macro_wait_time 50>
+
+                  // Tippt "devenv ." (Der Punkt ist wichtig!)
+                , <&macro_tap &kp D &kp E &kp V &kp E &kp N &kp V &kp SPACE &kp DOT>
+
+                  // Bestätigt mit Enter
+                , <&macro_tap &kp RET>
+                ;
+        };
     };
 
     keymap {
