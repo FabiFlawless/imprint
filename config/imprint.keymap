@@ -72,6 +72,29 @@
                 , <&macro_tap &kp RET>
                 ;
         };
+
+        terminal: terminal {
+            compatible = "zmk,behavior-macro";
+            label = "TERMINAL";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings =
+                  // Drückt Win + R, um den "Ausführen"-Dialog zu öffnen
+                  <&macro_press &kp LGUI> // LGUI ist die linke Windows-Taste
+                , <&macro_tap &kp R>
+                , <&macro_release &kp LGUI>
+
+                  // Warten, bis das Fenster erscheint
+                , <&macro_wait_time 100>
+
+                  // Tippt "wt" für die Windows Terminal App
+                , <&macro_tap &kp W &kp T>
+
+                  // Bestätigt mit Enter
+                , <&macro_tap &kp RET>
+                ;
+        };
     };
 
     keymap {
