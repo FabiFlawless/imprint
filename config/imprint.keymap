@@ -50,9 +50,9 @@
                 <&kp RET>;
         };
 
-        vs: vs {
+        vsc: vsc {
             compatible = "zmk,behavior-macro";
-            label = "VS";
+            label = "VSC";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
@@ -65,7 +65,7 @@
                 <&kp LALT>,
                 <&macro_wait_time 50>,
                 <&macro_tap>,
-                <&kp D &kp E &kp V &kp E &kp N &kp V &kp SPACE &kp DOT>,
+                <&kp C &kp O &kp D &kp E &kp DOT &kp E &kp X &kp E &kp SPACE &kp DOT>,
                 <&macro_tap>,
                 <&kp RET>;
         };
