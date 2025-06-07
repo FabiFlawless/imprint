@@ -50,22 +50,29 @@
                 <&kp RET>;
         };
 
-        vs: vs {
+        vscode_folder: vscode_folder {
             compatible = "zmk,behavior-macro";
-            label = "VS";
+            label = "VSCODE_FOLDER";
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
             bindings =
+                // Drückt Alt + D
                 <&macro_press>,
                 <&kp LALT>,
                 <&macro_tap>,
                 <&kp D>,
                 <&macro_release>,
                 <&kp LALT>,
+
+                // Kurze Pause
                 <&macro_wait_time 50>,
+
+                // Tippt "code.exe ."
                 <&macro_tap>,
-                <&kp D &kp E &kp V &kp E &kp N &kp V &kp SPACE &kp DOT>,
+                <&kp C &kp O &kp D &kp E &kp DOT &kp E &kp X &kp E &kp SPACE &kp DOT>,
+
+                // Bestätigt mit Enter
                 <&macro_tap>,
                 <&kp RET>;
         };
