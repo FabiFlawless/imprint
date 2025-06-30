@@ -89,6 +89,30 @@
                 <&macro_tap>,
                 <&kp RET>;
         };
+        
+        explorer: explorer {
+            compatible = "zmk,behavior-macro";
+            label = "EXPLORER";
+            #binding-cells = <0>;
+            wait-ms = <30>;   // Standard-Wartezeit zwischen den Aktionen
+            tap-ms = <30>;    // Standard-Tippdauer
+            bindings =
+                // Drückt Win + R, um den "Ausführen"-Dialog zu öffnen
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LGUI>,
+                // Wartet 100ms, damit der Dialog erscheinen kann
+                <&macro_wait_time 100>,
+                // Tippt "explorer" ein
+                <&macro_tap>,
+                <&kp E &kp X &kp P &kp L &kp O &kp R &kp E &kp R>,
+                // Drückt Enter
+                <&macro_tap>,
+                <&kp RET>;
+        };
     };
 
     keymap {
