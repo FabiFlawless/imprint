@@ -9,11 +9,15 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Pinned: ZMK main moved to Zephyr 4.1 (Dec 2025), which drops HWMv1
+      # board definitions. v0.3.0 is the last Zephyr 3.5 release and matches
+      # Cyboard's supported stack (see Cyboard zmk-user-config-template).
+      revision: v0.3.0
       import: app/west.yml
     - name: zmk-keyboards
       remote: Cyboard-DigitalTailor
-      revision: main
+      # Pinned to Cyboard's tagged release compatible with ZMK v0.3.0.
+      revision: v2026.07
       import: config/west.yml
   self:
     path: config
